@@ -1,36 +1,73 @@
+/* सामान्य स्टाइलिंग */
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
+    margin: 0px;
 }
 
 h1, h2 {
     text-align: center;
+    position: sticky;
+    top: 0px;
+    margin: 0px;
+    padding-top: 5px;
+    background-color: orange;
+    z-index: 1;
 }
 
+/* सर्च इनपुट की स्टाइलिंग */
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 0px;
+    padding-top: 5px;
+    background-color: orange;
+    position: sticky;
+    top: 42px;
+    z-index: 1;
+    border-radius: 0px 0px 30px 30px;
+}
 #searchInput {
-    width: 100%;
+    width: 60%;
+    text-align: center;
+    position: sticky;
+    top: 40px;
     padding: 10px;
+    font-size: 14px;
     margin-bottom: 20px;
-    font-size: 16px;
-    box-sizing: border-box;
+    border-radius: 50px;
+    border: 1px solid #ccc;
+    z-index: 2;
+}
+#searchInput:focus {
+    outline: none;
+    border-color: white
+}
+#searchInput:hover{
+    scale: 1.07;
+    transition-duration: 1s;
 }
 
+/* टेबल की स्टाइलिंग */
 table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
+    table-layout: fixed;
+    margin: 15px;
 }
 
 th, td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
+    word-wrap: break-word;
 }
 
 th {
     background-color: #f2f2f2;
 }
 
+/* फॉर्म की स्टाइलिंग */
 form {
     margin-top: 20px;
     display: flex;
@@ -44,14 +81,16 @@ form input {
     font-size: 14px;
     width: 100%;
     max-width: 200px;
+    height: 30px;
 }
 
 form button {
-    padding: 10px;
+    padding: 5px;
     background-color: #4CAF50;
     color: white;
     border: none;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 button.delete {
@@ -60,6 +99,7 @@ button.delete {
     border: none;
     padding: 5px 10px;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 button.edit {
@@ -69,6 +109,7 @@ button.edit {
     padding: 5px 10px;
     cursor: pointer;
     margin-right: 5px;
+    border-radius: 5px;
 }
 
 button.view-photo {
@@ -77,19 +118,38 @@ button.view-photo {
     border: none;
     padding: 5px 10px;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 /* Photo Section Styling */
 #photoSection, #editPhotoSection {
+    padding: 7px;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     align-items: center;
+    /* border: 1px solid rgba(0, 0, 0, 0.397); */
+    border-radius: 10px;
+    color: rgb(139, 139, 139);
+    background-color: #fff;
 }
 
 #photoPreview img, #editPhotoPreview img {
     max-width: 100px;
     max-height: 100px;
+    object-fit: contain;
+}
+.photo-buttons{
+    display: flex;
+    flex-direction: column;
+}
+#cameraBtn, #galleryBtn, #cancelPhoto, #uploadPhoto{
+    margin: 4px;
+    padding: 4px;
+}
+#cameraBtn, #galleryBtn, #cancelPhoto, #uploadPhoto:hover{
+    scale: 1.07;
+    transition-duration: 1s;
 }
 
 /* Modal Styling */
@@ -133,8 +193,33 @@ button.view-photo {
     max-height: 80vh;
 }
 
+#details {
+    cursor: pointer;
+    border: 1px solid #1616166c;
+    border-radius: 8px;
+    padding: 10px;
+    color: rgb(172, 112, 1);
+    margin: 10px;
+    background-color: #e4e4e4;
+    cursor: default;
+}
+
+#details:hover {
+    background-color: #f2f2f2;
+    transition: 0.3s;
+    background-color: #c7c6c6;
+    transition: 1s;
+}
+#details input{
+    border-radius: 15px;
+    border: none;
+}
+#details input:focus{
+    outline: none;
+}
+
 /* रेस्पॉन्सिव डिज़ाइन */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     table, thead, tbody, th, td, tr {
         display: block;
     }
@@ -163,4 +248,26 @@ button.view-photo {
     form input {
         max-width: 100%;
     }
+
+/* नोटिफिकेशन स्टाइलिंग */
+#notification {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+}
+
+#notification.success {
+    background-color: #4CAF50; /* हरा रंग - नया आइटम जोड़ा */
+}
+
+#notification.edit {
+    background-color: #2196F3; /* नीला रंग - एडिट सफल */
+}
+
+#notification.delete {
+    background-color: #f44336; /* लाल रंग - डिलीट सफल */
 }
