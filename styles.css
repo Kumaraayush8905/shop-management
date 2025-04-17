@@ -9,9 +9,10 @@ h1, h2 {
     position: sticky;
     top: 0px;
     margin: 0px;
-    padding-top: 5px;
+    padding-top: 25px;
     background-color: orange;
     z-index: 1;
+    padding-bottom: 37px;
 }
 
 /* सर्च इनपुट की स्टाइलिंग */
@@ -22,9 +23,10 @@ h1, h2 {
     padding-top: 5px;
     background-color: orange;
     position: sticky;
-    top: 42px;
+    top: 98px;
     z-index: 1;
     border-radius: 0px 0px 30px 30px;
+    box-shadow: 0px 12px 10px black;
 }
 #searchInput {
     width: 60%;
@@ -37,14 +39,17 @@ h1, h2 {
     border-radius: 50px;
     border: 1px solid #ccc;
     z-index: 2;
+    box-shadow: 0px 5px 5px black;
 }
 #searchInput:focus {
     outline: none;
     border-color: white
+    box-shadow: 0px 10px 10px black;
 }
 #searchInput:hover{
     scale: 1.07;
     transition-duration: 1s;
+    box-shadow: 0px 12px 10px black;
 }
 
 /* टेबल की स्टाइलिंग */
@@ -53,7 +58,7 @@ table {
     border-collapse: collapse;
     margin-bottom: 20px;
     table-layout: fixed;
-    margin: 15px;
+    margin-top: 15px;
 }
 
 th, td {
